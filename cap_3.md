@@ -1,4 +1,4 @@
-## Página 62
+## Página 62 - Requirement 1
 ### Antigo
 ```java
 
@@ -32,7 +32,7 @@ public class FooTest {
 
 ------------------------------------------------------------
  
-## Página 63
+## Página 63 - Requirement 1
 ### Antigo
 
 ```java
@@ -54,7 +54,7 @@ public final void beforeEach() {
 ```
 ------------------------------------------------------------
  
-## Página 65
+## Página 65 - Board Boundaries 1
 ### Antigo
 
 ```java
@@ -107,7 +107,7 @@ public class TicTacToeSpec {
 
 ------------------------------------------------------------
  
-## Página 66
+## Página 66 - Board Boundaries 2
 ### Antigo
 
 ```java
@@ -134,7 +134,7 @@ public void whenYOutsideBoardThenRuntimeException() {
 
 ------------------------------------------------------------
  
-## Página 67
+## Página 67 - Occupied Spot
 ### Antigo
 
 ```java

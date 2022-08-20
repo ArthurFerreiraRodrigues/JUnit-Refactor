@@ -2,7 +2,7 @@ Antes de tudo, acho importante declarar que a principal mudança relacionada ao 
 
 Então, é importante lembrar que toda classe que utiliza o Mockito, deve possuir a anotação @ExtendWith(MockitoExtension.class).
 
-## Página 147-148
+## Página 147-148 - Refactoring
 ### Antigo
 
 ```java
@@ -64,7 +64,7 @@ public void whenInstantiatedThenMongoHasNameGame() {
 
 ------------------------------------------------------------
  
-## Página 150
+## Página 150 - Adding Items to the Mongo Collection_Spy
 ### Antigo
 
 ```java
@@ -102,7 +102,7 @@ public void beforeEach() throws UnknownHostException {
 
 ------------------------------------------------------------
  
-## Página 150
+## Página 150 - Adding Items to the Mongo Collection_Specification
 ### Antigo
 
 ```java
@@ -135,7 +135,7 @@ public void whenSaveMoveThenInvokeMongoCollectionSave() {
 
 ------------------------------------------------------------
  
-## Página 151
+## Página 151 - Code Snippets before implementation
 ### Antigo
 
 ```java
@@ -165,7 +165,7 @@ Mockito.verify(mongoCollection, times(1)).save(bean);
 
 ------------------------------------------------------------
  
-## Página 153
+## Página 153 - Adding operation feedback
 ### Antigo
 
 ```java
@@ -196,7 +196,7 @@ public void whenSaveMoveThenReturnTrue() {
 
 ------------------------------------------------------------
  
-## Página 153-154
+## Página 153-154 - Refactioring
 ### Antigo
 
 ```java
@@ -264,7 +264,7 @@ public void whenSaveMoveThenReturnTrue() {
 
 ------------------------------------------------------------
  
-## Página 154
+## Página 154 - Error handling
 ### Antigo
 
 ```java
@@ -294,7 +294,7 @@ public void givenExceptionWhenSaveMoveThenReturnFalse() {
 
 ------------------------------------------------------------
  
-## Página 155
+## Página 155 - Clear state between games
 ### Antigo
 
 ```java
@@ -324,7 +324,7 @@ public void whenDropThenInvokeMongoCollectionDrop() {
 
 ------------------------------------------------------------
  
-## Página 156
+## Página 156 - Drop operation feedback
 ### Antigo
 
 ```java
@@ -350,8 +350,37 @@ public void whenDropThenReturnTrue() {
 ```
 
 ------------------------------------------------------------
+
+## Página 156 - Error handling
+### Antigo
+
+```java
+
+@Test
+public void givenExceptionWhenDropThenReturnFalse() {
+ doThrow(new MongoException("Bla")).when(mongoCollection).drop();
+ doReturn(mongoCollection).when(collection).getMongoCollection();
+ assertFalse(collection.drop());
+}
+
+```
+
+### Novo
+
+```java
+
+@Test
+public void givenExceptionWhenDropThenReturnFalse() {
+ Mockito.doThrow(new MongoException("Bla")).when(mongoCollection).drop();
+ Mockito.doReturn(mongoCollection).when(collection).getMongoCollection();
+ assertFalse(collection.drop());
+}
+
+```
+
+------------------------------------------------------------
  
-## Página 159
+## Página 159 - Specification Refactoring
 ### Antigo
 
 ```java
@@ -384,7 +413,7 @@ public final void beforeEach() throws UnknownHostException {
 
 ------------------------------------------------------------
  
-## Página 159
+## Página 159 - Storing current move
 ### Antigo
 
 ```java
@@ -413,7 +442,7 @@ public void whenPlayThenSaveMoveIsInvoked() {
 
 ------------------------------------------------------------
  
-## Página 161
+## Página 161 - Error handling_First Paragraph
 ### Antigo
 
 ```java
@@ -442,7 +471,7 @@ doReturn(true).when(collection).saveMove(any(TicTacToeBean.class));
 
 ------------------------------------------------------------
  
-## Página 161-162
+## Página 161-162 - Error handling_Second Paragraph
 ### Antigo
 
 ```java
