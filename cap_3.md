@@ -19,8 +19,6 @@ public class FooTest {
 ```java
 
 public class FooTest {
- @Rule
- public ExpectedException exception = ExpectedException.none();
  @Test
  public void whenDoFooThenThrowRuntimeException() {
  Foo foo = new Foo();
